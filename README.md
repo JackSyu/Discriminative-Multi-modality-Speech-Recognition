@@ -23,7 +23,7 @@ Extract the video frames and crop lip area.<br>
 ```
 python dataset_tfrecord_trainval.py
 ```
-## Train
+## Training & Testing
 We train the audio enhancement sub-network and the MSR sub-network separately.
 ```
 python Train_Audio_Visual_Speech_Enhancement.py
