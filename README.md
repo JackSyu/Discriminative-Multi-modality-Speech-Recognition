@@ -29,3 +29,8 @@ We train the audio enhancement sub-network and the MSR sub-network separately.
 python Train_Audio_Visual_Speech_Enhancement.py
 python Train_Audio_Visual_Speech_Recognition.py
 ```
+Then we freeze the AE sub-network and complete the subsequent joint training.
+```
+python Train_AE_MSR.py
+Python Test_AE_MSR.py
+```
