@@ -23,6 +23,7 @@ LRS3:<br>
 Download the data.<br>
 Extract the video frames and crop lip area.<br>
 ```
+cd preprocessing
 python dataset_tfrecord_trainval.py
 ```
 ## Training & Testing
