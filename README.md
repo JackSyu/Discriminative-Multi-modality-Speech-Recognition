@@ -42,7 +42,7 @@ If you find our code useful, please consider citing:
 ```
 @article{xu2020dmsr,
   title={Discriminative Multi-modality Speech Recognition},
-  author={Bo, Xu and Cheng, Lu and Yandong, Guo and Jacob Wang},
+  author={Xu, Bo and Lu, Cheng and Guo, Yandong and Jacob Wang},
   journal={arXiv preprint arXiv:2005.05592},
   year={2020}
 }
