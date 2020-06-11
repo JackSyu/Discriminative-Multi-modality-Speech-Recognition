@@ -5,7 +5,7 @@ In this paper, we propose a two-stage speech recognition model. In the first sta
 ## Preparation
 First of all, clone the code
 ```
-git clone https://github.com/JackSyu/AE-MSR.git
+git clone https://github.com/JackSyu/Discriminative-Multi-modality-Speech-Recognition.git
 ```
 Then, create a folder:
 ```
