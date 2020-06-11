@@ -40,10 +40,11 @@ Python Test_AE_MSR.py
 ## Citation
 If you find our code useful, please consider citing:
 ```
-@article{xu2020dmsr,
-  title={Discriminative Multi-modality Speech Recognition},
-  author={Xu, Bo and Lu, Cheng and Guo, Yandong and Jacob Wang},
-  journal={arXiv preprint arXiv:2005.05592},
-  year={2020}
+@InProceedings{Xu_2020_CVPR,
+author = {Xu, Bo and Lu, Cheng and Guo, Yandong and Wang, Jacob},
+title = {Discriminative Multi-Modality Speech Recognition},
+booktitle = {IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+month = {June},
+year = {2020}
 }
 ```
