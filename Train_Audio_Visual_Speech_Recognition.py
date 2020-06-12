@@ -13,7 +13,7 @@ FLAGS = tf.app.flags.FLAGS
 
 tf.flags.DEFINE_string('vocab_path', '/home/jack/model/original_english_word_count.txt', 'dictionary path')
 
-tf.flags.DEFINE_integer('NUM_EPOCH', 100, 'epoch次数')
+tf.flags.DEFINE_integer('NUM_EPOCH', 100, 'epoch times')
 
 
 def main(unused_argv):
@@ -76,6 +76,44 @@ def main(unused_argv):
         summary_writer.add_summary(epoch_summary, epoch)
         saver.save(sess, os.path.join(model_dir, model_name + str(epoch)))
         print('[Epoch %d] train end ' % epoch)
+        print('Epoch %d] eval begin' % epoch)
+        val_total_loss = 0
+        sess.run(val_init_op)
+        val_pairs = []
+        i = 0
+        if epoch > -1:
+            while True:
+                try:
+                    out_indices,loss1, y = model.eval(sess)
+                    #print('pred: ', out_indices)
+                    #print('ground truth: ', y)
+                    print('loss: ', loss1)
+                    val_total_loss += loss1
+                    print('\n   [%d ]' % (i))
+                    for j in range(len(y)):
+                        unpadded_out = None
+                        if 1 in out_indices[j]:
+                            idx_1 = np.where(out_indices[j] == 1)[0][0]
+                            unpadded_out = out_indices[j][:idx_1]
+                        else:
+                            unpadded_out = out_indices[j]
+                        idx_1 = np.where(y[j] == 1)[0][0]
+                        unpadded_y = y[j][:idx_1]
+                        predic = ''.join([vocab.id_to_word[k] for k in unpadded_out])
+                        label = ''.join([vocab.id_to_word[i] for i in unpadded_y])
+                        val_pairs.append((predic, label))
+                    i += 1
+                except:
+                    break
+            avg_loss = val_total_loss / max(i, 1)
+            print("avg_loss",avg_loss)
+            counts, cer = cer_s(val_pairs)
+
+            summary = tf.Summary(value=[tf.Summary.Value(tag="cer", simple_value=cer),
+                                        tf.Summary.Value(tag="val_loss", simple_value=avg_loss)])
+            summary_writer.add_summary(summary, epoch)
+            print('Current error rate is : %.4f' % cer)
+        print('Epoch %d] eval end' % epoch)
 
         #############################################################
 
