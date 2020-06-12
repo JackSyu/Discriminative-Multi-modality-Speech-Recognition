@@ -73,28 +73,6 @@ def main(unused_argv):
         summary_writer.add_summary(epoch_summary, epoch)
         saver.save(sess, os.path.join(model_dir, model_name + str(epoch)))
         print('[Epoch %d] train end ' % epoch)
-        print('Epoch %d] eval begin' % epoch)
-        val_total_loss = 0
-        sess.run(val_init_op)
-        i = 0
-        if epoch < -1:
-            while True:
-                try:
-                    loss1, diff = model.eval(sess)
-                    #print('loss: ', loss1)
-                    val_total_loss += loss1
-                    print('\n   [%d ] Loss: %.4f' % (i, loss1))
-                    print('\n   dif: %.4f' % diff)
-                    i += 1
-                except:
-                    break
-            avg_loss = val_total_loss / max(i, 1)
-            print("avg_loss", avg_loss)
-
-            summary = tf.Summary(value=[tf.Summary.Value(tag="val_loss", simple_value=avg_loss)])
-            summary_writer.add_summary(summary, epoch)
-            
-        print('Epoch %d] eval end' % epoch)
         #############################################################
 
     summary_writer.close()
