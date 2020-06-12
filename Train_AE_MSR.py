@@ -14,7 +14,7 @@ FLAGS = tf.app.flags.FLAGS
 
 tf.flags.DEFINE_string('vocab_path', '/home/jack/model/w22lmc/original_english_word_count.txt', 'dictionary path')
 
-tf.flags.DEFINE_integer('NUM_EPOCH', 100, 'epoch次数')
+tf.flags.DEFINE_integer('NUM_EPOCH', 100, 'epoch times')
 
 
 def main(unused_argv):
