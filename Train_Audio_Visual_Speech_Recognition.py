@@ -22,7 +22,7 @@ def main(unused_argv):
     vocab = Vocabulary(FLAGS.vocab_path)
     #vocab.id_to_word['-1'] = -1
 
-    model_dir = 'AVSR_LAB_transformer_1word' + datetime.datetime.now().strftime('%Y:%m:%d:%H:%M:%S')
+    model_dir = 'MSR' + datetime.datetime.now().strftime('%Y:%m:%d:%H:%M:%S')
     model_name = 'ckp'
     model_config = ModelConfig()
     train_config = TrainingConfig()
@@ -46,7 +46,7 @@ def main(unused_argv):
 
     saver = tf.train.Saver(max_to_keep=FLAGS.NUM_EPOCH)
 
-    summary_writer = tf.summary.FileWriter('logs_no_mh/asr_transformer' +
+    summary_writer = tf.summary.FileWriter('logs_no_mh/msr' +
                                                     datetime.datetime.now().strftime('%Y:%m:%d:%H:%M:%S'),
                                                     graph=sess.graph)
 
