@@ -23,10 +23,8 @@ def main(unused_argv):
     model_config = ModelConfig()
     train_config = TrainingConfig()
     train_dataset = build_dataset(model_config.train_tfrecord_list, batch_size=model_config.batch_size, shuffle=True)
-    val_dataset = build_dataset(model_config.val_tfrecord_list, batch_size=model_config.batch_size, is_training=False)
     iterator = tf.data.Iterator.from_structure(train_dataset.output_types, train_dataset.output_shapes)
     train_init_op = iterator.make_initializer(train_dataset)
-    val_init_op = iterator.make_initializer(val_dataset)
 
     config = tf.ConfigProto()
     config.gpu_options.allow_growth = True
