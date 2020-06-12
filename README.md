@@ -20,7 +20,7 @@ MATLAB (optionally）
 ```
 ### Data preprocessing
 LRS3:<br>
-Download the data.<br>
+Download or use your own data.<br>
 Extract the video frames and crop lip area.<br>
 ```
 cd preprocessing
