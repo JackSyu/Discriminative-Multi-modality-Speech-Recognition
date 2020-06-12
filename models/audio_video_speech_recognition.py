@@ -170,7 +170,7 @@ class make_block():
             self.cnt += 1
         return x
 
-class Lipreading(object):
+class MSR(object):
 
     def __init__(self, model_config, iterator, train_config):
 
