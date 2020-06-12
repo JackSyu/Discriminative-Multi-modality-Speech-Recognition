@@ -13,7 +13,7 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "4"
 
 FLAGS = tf.app.flags.FLAGS
 
-tf.flags.DEFINE_integer('NUM_EPOCH', 100, 'epoch次数')
+tf.flags.DEFINE_integer('NUM_EPOCH', 100, 'epoch times')
 
 def main(unused_argv):
 
@@ -41,7 +41,7 @@ def main(unused_argv):
 
     saver = tf.train.Saver(max_to_keep=FLAGS.NUM_EPOCH)
 
-    summary_writer = tf.summary.FileWriter('logs_no_mh/asr_transformer' +
+    summary_writer = tf.summary.FileWriter('logs_no_mh/ae' +
                                                     datetime.datetime.now().strftime('%Y:%m:%d:%H:%M:%S'),
                                                     graph=sess.graph)
 
