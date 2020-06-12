@@ -2,7 +2,7 @@ import os
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"] = "7"
 import tensorflow as tf
-from models.audio_video_speech_recognition import Lipreading as Model
+from models.audio_video_speech_recognition import MSR as Model
 from input import build_dataset, Vocabulary
 import datetime
 from configuration import ModelConfig, TrainingConfig
