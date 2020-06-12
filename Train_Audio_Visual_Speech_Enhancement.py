@@ -78,7 +78,6 @@ def main(unused_argv):
         sess.run(val_init_op)
         i = 0
         if epoch < -1:
-            # for jjjj in range(118550):
             while True:
                 try:
                     loss1, diff = model.eval(sess)
@@ -94,7 +93,7 @@ def main(unused_argv):
 
             summary = tf.Summary(value=[tf.Summary.Value(tag="val_loss", simple_value=avg_loss)])
             summary_writer.add_summary(summary, epoch)
-
+            
         print('Epoch %d] eval end' % epoch)
         #############################################################
 
