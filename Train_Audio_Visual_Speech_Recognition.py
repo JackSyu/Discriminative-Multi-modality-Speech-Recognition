@@ -9,10 +9,9 @@ from configuration import ModelConfig, TrainingConfig
 import numpy as np
 from statistic import cer_s
 
-
 FLAGS = tf.app.flags.FLAGS
 
-tf.flags.DEFINE_string('vocab_path', '/home/jack/model/w22lmc/original_english_word_count.txt', 'dictionary path')
+tf.flags.DEFINE_string('vocab_path', '/home/jack/model/original_english_word_count.txt', 'dictionary path')
 
 tf.flags.DEFINE_integer('NUM_EPOCH', 100, 'epoch次数')
 
@@ -20,7 +19,6 @@ tf.flags.DEFINE_integer('NUM_EPOCH', 100, 'epoch次数')
 def main(unused_argv):
 
     vocab = Vocabulary(FLAGS.vocab_path)
-    #vocab.id_to_word['-1'] = -1
 
     model_dir = 'MSR' + datetime.datetime.now().strftime('%Y:%m:%d:%H:%M:%S')
     model_name = 'ckp'
