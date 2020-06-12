@@ -284,7 +284,6 @@ class AE_MSR(object):
     def build_encoder(self):
         """Encoder."""
         with tf.variable_scope('enhance_encoder'):
-            # Mask
             x = self.multi_output
             encoder_input_2 = self.mix_audio_frames
 
