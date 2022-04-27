@@ -212,7 +212,7 @@ class SpeechEnhancement(object):
 
         with tf.variable_scope("p3d"):
             cnt = 0
-            conv1_custom = tf.nn.conv3d(self.image_seqs, get_conv_weight('firstconv1', [1, 7, 7, 1, 64]),
+            conv1_custom = tf.nn.conv3d(self.mouth_frames, get_conv_weight('firstconv1', [1, 7, 7, 1, 64]),
                                         strides=[1, 1, 2, 2, 1],
                                         padding='SAME')
             conv1_custom_bn = tf.layers.batch_normalization(conv1_custom, training=self.is_training)
